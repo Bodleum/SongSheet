@@ -1,5 +1,5 @@
 \documentclass[a4paper]{article}
-\usepackage[left=1cm,right=1cm,top=0.5cm,bottom=1.8cm]{geometry}
+\usepackage[left=1cm,right=1cm,top=0.75cm,bottom=1.8cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{makeidx}
@@ -9,21 +9,33 @@
 \usepackage{totcount}
 \usepackage{xcolor}
 
-\newcommand{\ssver}{3.2.3}
+% --------------------
+
+% Settings
+
+\def\musicmode{1}
+\def\largeprintmode{0}
+
+% --------------------
+
+\newcommand{\ssver}{3.2.5}
 
 \makeindex
 
+% Counters
 \newtotcounter{songcount}
 \newtotcounter{psalmcount}
 \definecolor{title dark}{HTML}{7E73A7}
 
+% Footer
 \pagestyle{fancy}
 \fancyhf{}
-\cfoot{\thepage \\ {\footnotesize For corrections and additions email: songsheet@daniellaing.com}}
+\cfoot{\thepage \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}}
 \renewcommand{\headrulewidth}{0pt}
 
 \makeatletter
 
+% Chorus
 \newcommand{\chorus}{\@chorusi}
 \newcommand\@chorusi{\@ifnextchar\endchorus{\@chorusend}{\@chorusii}}
 \newcommand\@chorusii[1]{\quad{\itshape#1}\par\@chorusi}
@@ -31,6 +43,7 @@
 
 % --------------------
 
+% Verse
 \renewcommand{\verse}{\@versei}
 \newcommand\@versei{\@ifnextchar\endverse{\@verseend}{\@verseii}}
 \newcommand\@verseii[1]{#1\par\@versei}
@@ -38,6 +51,7 @@
 
 % --------------------
 
+% Bridge
 \newcommand{\bridge}{\@bridgei}
 \newcommand\@bridgei{\@ifnextchar\endbridge{\@bridgeend}{\@bridgeii}}
 \newcommand\@bridgeii[1]{{\itshape#1}\par\@bridgei}
@@ -46,7 +60,7 @@
 \makeatother
 
 \newenvironment{song}[1]{\begin{minipage}[t]{0.94\columnwidth}{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\end{minipage}\vskip2em}
-  \newenvironment{psalm}[2]{\begin{minipage}[t]{0.94\columnwidth}\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\end{minipage}\vskip2em}
+\newenvironment{psalm}[2]{\begin{minipage}[t]{0.94\columnwidth}\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\end{minipage}\vskip2em}
 
 \newcommand{\extra}[1]{{\normalsize\itshape (#1)}}
 
@@ -54,7 +68,8 @@
 \newcommand{\tr}{{\normalsize\itshape (Scottish Psalter)}}
 \newcommand{\LORD}{{\scshape Lord}}
 
-
+% Chords
+\newcommand\chord[2][l]{\ifx\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}#2\\\mbox{}\end{tabular}}\else\fi}
 
 \begin{document}
 \begin{titlepage}
@@ -4415,83 +4430,83 @@
   \endverse
 \end{song}
 
-\begin{song}{Start A Fire}
-    \verse
-        {This world can be cold and bitter}
-        {Feels like we're in the dead of winter}
-        {Waiting on something better}
-        {But am I really gonna hide forever?}
-    \endverse
-    \verse
-        {Over and over again}
-        {I hear Your voice in my head}
-        {Let Your light shine, let Your light shine for all to see}
-    \endverse
-    \chorus
-        {Start a fire in my soul}
-        {Fan the flame and make it grow}
-        {So there's no doubt or denying}
-        {Let it burn so brightly}
-        {That everyone around can see}
-        {That it's You, that it's You that we need}
-        {Start a fire in me}
-    \endchorus
-    \verse
-        {You only need a spark to start a whole blaze}
-        {It only takes a little faith}
-        {Let it start right here in this city}
-        {So these old walls will never be the same}
-    \endverse
-    \verse
-        {Over and over again}
-        {I hear Your voice in my head}
-        {They need to know}
-        {I need to go}
-        {Spirit won't You fall on my heart now}
-    \endverse
-    \bridge
-        {You are the fire You are the flame}
-        {You are the light on the darkest day}
-        {We have the hope we bear Your name}
-        {We carry the news that You have come to save}
-        {Only You can save}
-    \endbridge
-\end{song}
+%\begin{song}{Start A Fire}
+%    \verse
+%        {This world can be cold and bitter}
+%        {Feels like we're in the dead of winter}
+%        {Waiting on something better}
+%        {But am I really gonna hide forever?}
+%    \endverse
+%    \verse
+%        {Over and over again}
+%        {I hear Your voice in my head}
+%        {Let Your light shine, let Your light shine for all to see}
+%    \endverse
+%    \chorus
+%        {Start a fire in my soul}
+%        {Fan the flame and make it grow}
+%        {So there's no doubt or denying}
+%        {Let it burn so brightly}
+%        {That everyone around can see}
+%        {That it's You, that it's You that we need}
+%        {Start a fire in me}
+%    \endchorus
+%    \verse
+%        {You only need a spark to start a whole blaze}
+%        {It only takes a little faith}
+%        {Let it start right here in this city}
+%        {So these old walls will never be the same}
+%    \endverse
+%    \verse
+%        {Over and over again}
+%        {I hear Your voice in my head}
+%        {They need to know}
+%        {I need to go}
+%        {Spirit won't You fall on my heart now}
+%    \endverse
+%    \bridge
+%        {You are the fire You are the flame}
+%        {You are the light on the darkest day}
+%        {We have the hope we bear Your name}
+%        {We carry the news that You have come to save}
+%        {Only You can save}
+%    \endbridge
+%\end{song}
 
-\begin{song}{Did You Feel The Mountains Tremble?}
-    \verse
-        {Did you feel the mountains tremble?}
-        {Did you hear the oceans roar?}
-        {When the people rose to sing of}
-        {Jesus Christ the risen one}
-  \endverse
-    \chorus
-        {And we can see that God you're moving}
-        {A mighty river through the nations}
-        {When young and old return to Jesus}
-        {Fling wide your Heavenly gates}
-        {Prepare the way of the risen Lord}
-    \endchorus
-    \chorus
-        {Open up the doors and let the music play}
-        {Let the streets resound with singing}
-        {Songs that bring your hope}
-        {Songs that bring your joy}
-        {Dancers who dance upon injustice}
-    \endchorus
-    \verse
-        {Did you feel the people tremble?}
-        {Did you hear the singers roar?}
-        {When the lost began to sing of}
-        {Jesus Christ the saving one}
-    \endverse
-    \verse
-        {Did you feel the darkness tremble}
-        {When all the saints join in one song}
-        {And all the streams flow as one river}
-        {To wash away our brokenness}
-  \endverse
-\end{song}
+%\begin{song}{Did You Feel The Mountains Tremble?}
+%    \verse
+%        {Did you feel the mountains tremble?}
+%        {Did you hear the oceans roar?}
+%        {When the people rose to sing of}
+%        {Jesus Christ the risen one}
+%  \endverse
+%    \chorus
+%        {And we can see that God you're moving}
+%        {A mighty river through the nations}
+%        {When young and old return to Jesus}
+%        {Fling wide your Heavenly gates}
+%        {Prepare the way of the risen Lord}
+%    \endchorus
+%    \chorus
+%        {Open up the doors and let the music play}
+%        {Let the streets resound with singing}
+%        {Songs that bring your hope}
+%        {Songs that bring your joy}
+%        {Dancers who dance upon injustice}
+%    \endchorus
+%    \verse
+%        {Did you feel the people tremble?}
+%        {Did you hear the singers roar?}
+%        {When the lost began to sing of}
+%        {Jesus Christ the saving one}
+%    \endverse
+%    \verse
+%        {Did you feel the darkness tremble}
+%        {When all the saints join in one song}
+%        {And all the streams flow as one river}
+%        {To wash away our brokenness}
+%  \endverse
+%\end{song}
 
 \begin{psalm}{Psalm 103 \sp}{D.L.M.}
   \verse
@@ -4553,6 +4568,63 @@
     {His servants who perform his word.}
     {\textsuperscript{22} Praise God, his works throughout his realm,}
     {And you, my soul, O praise the {\LORD!}}
+  \endverse
+\end{psalm}
+
+\begin{psalm}{Psalm 51 \tr}{C.M.}
+  \verse
+    {\textsuperscript{1} After thy loving-kindness, Lord,}
+    {have mercy upon me:}
+    {For thy compassions great, blot out}
+    {all mine iniquity.}
+  \endverse
+  \verse
+    {\textsuperscript{2} Me cleanse from sin, and throughly wash}
+    {from mine iniquity:}
+    {\textsuperscript{3} For my transgressions I confess;}
+    {my sin I ever see.}
+  \endverse
+  \verse
+    {\textsuperscript{4} `Gainst thee, thee only, have I sinned,}
+    {in thy sight done this ill;}
+    {That when thou speak'st thou may'st be just,}
+    {and clear in judging still.}
+  \endverse
+  \verse
+    {\textsuperscript{5} Behold, I in iniquity}
+    {was formed the womb within;}
+    {My mother also me conceived}
+    {in guiltiness and sin.}
+  \endverse
+  \verse
+    {\textsuperscript{6} Behold, thou in the inward parts}
+    {with truth delighted art;}
+    {And wisdom thou shalt make me know}
+    {within the hidden part.}
+  \endverse
+  \verse
+    {\textsuperscript{7} Do thou with hyssop sprinkle me,}
+    {I shall be cleans\'ed so;}
+    {Yea, wash thou me, and then I shall}
+    {be whiter than the snow.}
+  \endverse
+  \verse
+    {\textsuperscript{8} Of gladness and of joyfulness}
+    {make me to hear the voice;}
+    {That so these very bones which thou}
+    {hast broken may rejoice.}
+  \endverse
+  \verse
+    {\textsuperscript{9} All mine iniquities blot out,}
+    {thy face hide from my sin.}
+    {\textsuperscript{10} Create a clean heart, Lord, renew}
+    {a right \underline{spirit} me within.}
+  \endverse
+  \verse
+    {\textsuperscript{11} Cast me not from thy sight, nor take}
+    {thy Holy \underline{Spirit} away.}
+    {\textsuperscript{12} Restore me thy salvation's joy;}
+    {with thy free \underline{Spirit} me stay.}
   \endverse
 \end{psalm}
 
