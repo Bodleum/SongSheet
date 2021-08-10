@@ -18,7 +18,7 @@
 
 % --------------------
 
-\newcommand{\ssver}{3.2.5}
+\newcommand{\ssver}{3.2.6}
 
 \makeindex
 
@@ -69,7 +69,7 @@
 \newcommand{\LORD}{{\scshape Lord}}
 
 % Chords
-\newcommand\chord[2][l]{\ifx\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}#2\\\mbox{}\end{tabular}}\else\fi}
+\newcommand{\m}[2][l]{\if\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}{\small\mdseries#2}\\\mbox{}\end{tabular}}\else\fi}
 
 \begin{document}
 \begin{titlepage}
@@ -3181,14 +3181,14 @@
 
 \begin{song}{Crown Him With Many Crowns}
     \verse
-        {Crown Him with many crowns,}
-        {The Lamb upon His throne.}
-        {Hark! How the Heavenly anthem drowns}
-        {All music but its own.}
-        {Awake, my soul, and sing of Him}
-        {Who died for thee,}
-        {And hail Him as thy matchless King}
-        {Through all eternity.}
+        {\m{D}Crown Him with many \m{G}crowns,}
+        {\m{G}The \m{D}Lamb u\m{Em}pon His \m{A}throne.}
+        {\m{A7}Hark! \m{D}How the \m{G}Heaven\m{D}ly \m{E}anthem \m{A}drowns}
+        {\m{D}All \m{A}mu\m{D}sic \m{E7}but its \m{A}own.}
+        {A\m{D}wake, my soul, and \m{G}sing,}
+        {Of \m{E}Him who died for \m{A}thee,}
+        {And \m{D}hail Him \m{G}as \m{D}thy \m{G}match\m{A}less \m{D}King}
+        {Through \m{G}all e\m{A}terni\m{D}ty.}
     \endverse
     \verse
         {Crown Him the Lord of life,}
