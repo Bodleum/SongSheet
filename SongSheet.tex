@@ -18,8 +18,26 @@
 
 % --------------------
 
-\newcommand{\ssver}{3.3.2}
+\newcommand{\ssver}{3.3.3}
 
+% Large print sizes
+\if\largeprintmode 1%
+  \renewcommand{\tiny}{\fontsize{17}{22.5}\selectfont}%
+  \renewcommand{\scriptsize}{\fontsize{19}{25.5}\selectfont}%
+  \renewcommand{\footnotesize}{\fontsize{21}{28.5}\selectfont}%
+  \renewcommand{\small}{\fontsize{23}{31.5}\selectfont}%
+  \renewcommand{\normalsize}{\fontsize{24}{33}\selectfont}%
+  \renewcommand{\large}{\fontsize{26}{36}\selectfont}%
+  \renewcommand{\Large}{\fontsize{28}{39}\selectfont}%
+  \renewcommand{\LARGE}{\fontsize{31}{43.5}\selectfont}%
+  \renewcommand{\huge}{\fontsize{34}{48}\selectfont}%
+  \renewcommand{\Huge}{\fontsize{38}{54}\selectfont}%
+\fi
+
+% Index
+\if\largeprintmode 1%
+  \usepackage[columns=1]{idxlayout}%
+\fi
 \makeindex
 
 % Counters
@@ -30,7 +48,7 @@
 % Footer
 \pagestyle{fancy}
 \fancyhf{}
-\cfoot{\thepage \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}}
+\cfoot{{\small\thepage}\if\largeprintmode 1\else \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}\fi}
 \renewcommand{\headrulewidth}{0pt}
 
 \makeatletter
@@ -59,8 +77,8 @@
 
 \makeatother
 
-\newenvironment{song}[1]{\begin{minipage}[t]{0.94\columnwidth}{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\end{minipage}\vskip2em}
-\newenvironment{psalm}[2]{\begin{minipage}[t]{0.94\columnwidth}\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\end{minipage}\vskip2em}
+\newenvironment{song}[1]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
+\newenvironment{psalm}[2]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
 
 \newcommand{\extra}[1]{{\normalsize\itshape (#1)}}
 
@@ -75,7 +93,7 @@
 \begin{titlepage}
     \begin{center}
         % \adjustbox{valign=m}%
-        {\includegraphics[width=11.5cm]{titleimage.png}}\\\vskip5em
+        {\includegraphics[height=0.7\pageheight]{titleimage.png}}\\\vskip1em
         {\color{title dark}{\Huge\bfseries Now with \total{songcount} songs \\ and \total{psalmcount} psalms!}
 
         \vfill{\footnotesize Version {\ssver}}}
@@ -83,11 +101,13 @@
 \end{titlepage}
 \setcounter{page}{2}  % Make title page, page 1
 \printindex
+\if\largeprintmode 1\pagebreak\fi
 
 % --------------------
-
-\begin{multicols}{2}
-\raggedcolumns
+\if\largeprintmode 1\else
+  \begin{multicols}{2}
+  \raggedcolumns
+\fi
 
 \begin{song}{The Sands Of Time}
   \verse
@@ -4615,6 +4635,7 @@
 \end{psalm}
 
 
-
-\end{multicols}
+\if\largeprintmode 1\else
+  \end{multicols}
+\fi
 \end{document}
