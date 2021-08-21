@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[left=1cm,right=1cm,top=0.75cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{makeidx}
@@ -87,7 +88,8 @@
 \newcommand{\LORD}{{\scshape Lord}}
 
 % Chords
-\newcommand{\m}[2][l]{\if\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}{\small\mdseries#2}\\\mbox{}\end{tabular}}\else\fi}
+\definecolor{chordColor}{HTML}{CC241D}
+\newcommand{\m}[2][l]{\if\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}{\small\mdseries\color{chordColor}#2}\\\mbox{}\end{tabular}}\else\fi}
 
 \begin{document}
 \begin{titlepage}
@@ -144,14 +146,14 @@
 
 \begin{song}{Come, Thou Fount}
   \verse
-  {Come, Thou fount of every blessing,}
-  {Tune my heart to sing Thy grace;}
-  {Streams of mercy, never ceasing,}
-  {Call for songs of loudest praise.}
-  {Teach me some melodious sonnet,}
-  {Sung by flaming tongues above.}
-  {Praise the mount! I'm fixed upon it,}
-  {Mount of Thy redeeming love.}
+  {Come, Thou \m{G}fount of every \m{D}blessing,}
+  {Tune my \m{C}heart to \m{D}sing Thy \m{G}grace;}
+  {\m{G}Streams of mercy, never \m{D}ceasing,}
+  {Call for \m{C}songs of \m{D}loudest \m{G}praise.}
+  {\m{G}Teach me \m{Em}some melodious \m{C}sonnet,}
+  {Sung by \m{Em}flaming tongues \m{C}above.}
+  {Praise the \m{G}mount! I'm fixed \m{D}upon it,}
+  {\m{D}Mount of \m{C}Thy re\m{D}deeming \m{G}love.}
   \end
   \verse
   {Here I raise mine Ebenezer;}
@@ -177,12 +179,14 @@
 
 \begin{song}{And Can It Be}
   \verse
-  {And Can It Be that I should gain}
-  {An interest in the Saviour's blood?}
-  {Died He for me, ho caused His pain-}
-  {For me, who Him to death pursued?}
-  {Amazing love! How can it be,}
-  {That Thou, my God, shouldst die for me?}
+  {\m{G}And can it \m{Em}be that \m{C}I \m{D}should \m{G}gain}
+  {An \m{C}in\m{D}t'rest \m{G}in the \m{D}Sav\m{A}iour's \m{D}blood?}
+  {Died He for \m{G}me\m{D}, who \m{G}caused \m{Em}His \m{D}pain --}
+  {For \m{C}me, who \m{G}Him to \m{Em}death \m{D}pur\m{G}sued?}
+  {A\m{D}mazing \m{G}love! \m{Em}How \m{C}can \m{Am}it \m{D}be,}
+  {That \m{G}Thou, my \m{C}God, shouldst \m{D}die for \m{G}me?}
+  {\quad{\itshape Amazing \m{D}love! How \m{D7}can it \m{G}be,}}
+  {\quad{\itshape That \m{C}Thou, my \m{G}God, \m{C}shouldst \m{G}die \m{D}for \m{G}me!}}
   \end
   \verse
   {'Tis mystery all: th'Immortal dies:}
