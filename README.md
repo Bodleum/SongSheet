@@ -1,4 +1,4 @@
 # Song Sheet
 
-* [Song Sheet](SongSheet.pdf)
-* [Song Sheet with Chords](SongSheetWithChords.pdf)
+* [Song Sheet](https://github.com/Bodleum/SongSheet/raw/master/SongSheet.pdf)
+* [Song Sheet with Chords](https://github.com/Bodleum/SongSheet/raw/master/SongSheetWithChords.pdf)
