@@ -1,0 +1,97 @@
+\usepackage[left=1cm,right=1cm,top=0.75cm,bottom=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{totcount}
+\usepackage{xcolor}
+
+% Default settings
+\def\musicmode{0}
+\def\largeprintmode{0}
+
+% Large print sizes
+\if\largeprintmode 1%
+  \renewcommand{\tiny}{\fontsize{17}{22.5}\selectfont}%
+  \renewcommand{\scriptsize}{\fontsize{19}{25.5}\selectfont}%
+  \renewcommand{\footnotesize}{\fontsize{21}{28.5}\selectfont}%
+  \renewcommand{\small}{\fontsize{23}{31.5}\selectfont}%
+  \renewcommand{\normalsize}{\fontsize{24}{33}\selectfont}%
+  \renewcommand{\large}{\fontsize{26}{36}\selectfont}%
+  \renewcommand{\Large}{\fontsize{28}{39}\selectfont}%
+  \renewcommand{\LARGE}{\fontsize{31}{43.5}\selectfont}%
+  \renewcommand{\huge}{\fontsize{34}{48}\selectfont}%
+  \renewcommand{\Huge}{\fontsize{38}{54}\selectfont}%
+\fi
+
+% Index
+\if\largeprintmode 1%
+  \usepackage[columns=1]{idxlayout}%
+\fi
+\makeindex
+
+% Counters
+\newtotcounter{songcount}
+\newtotcounter{psalmcount}
+\definecolor{title dark}{HTML}{7E73A7}
+
+% Footer
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{{\small\thepage}\if\largeprintmode 1\else \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}\fi}
+\renewcommand{\headrulewidth}{0pt}
+
+\makeatletter
+
+% Chorus
+\newcommand{\chorus}{\@chorusi}
+\newcommand{\@chorusi}{\@ifnextchar\end{\@chorusend}{\@chorusii}}
+\newcommand{\@chorusii}[1]{\quad{\itshape#1}\par\@chorusi}
+\newcommand{\@chorusend}[1]{\vskip1em}
+
+% --------------------
+
+% Verse
+\renewcommand{\verse}{\@versei}
+\newcommand{\@versei}{\@ifnextchar\end{\@verseend}{\@verseii}}
+\newcommand{\@verseii}[1]{#1\par\@versei}
+\newcommand{\@verseend}[1]{\vskip1em}
+
+% --------------------
+
+% Bridge
+\newcommand{\bridge}{\@bridgei}
+\newcommand{\@bridgei}{\@ifnextchar\end{\@bridgeend}{\@bridgeii}}
+\newcommand{\@bridgeii}[1]{{\itshape#1}\par\@bridgei}
+\newcommand{\@bridgeend}[1]{\vskip1em}
+
+\makeatother
+
+\newenvironment{song}[1]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
+\newenvironment{psalm}[2]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
+
+\newcommand{\extra}[1]{{\normalsize\itshape (#1)}}
+
+\renewcommand{\sp}{{\normalsize\itshape (Sing Psalms)}}
+\newcommand{\tr}{{\normalsize\itshape (Scottish Psalter)}}
+\newcommand{\LORD}{{\scshape Lord}}
+
+% Chords
+\definecolor{chordColor}{HTML}{CC241D}
+\newcommand{\m}[2][l]%
+{%
+  \if\musicmode 1%
+    \makebox[0pt][#1]%
+    {%
+      \begin{tabular}[b]%
+        {@{}l@{}}%
+        {\normalsize\mdseries\color{chordColor}#2}%
+        \\%
+        \mbox{}%
+      \end{tabular}%
+    }%
+  \fi%
+}

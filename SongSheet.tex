@@ -1,95 +1,14 @@
 \documentclass[a4paper]{article}
-\usepackage[left=1cm,right=1cm,top=0.75cm,bottom=1.8cm]{geometry}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage{makeidx}
-\usepackage{graphicx}
-\usepackage{adjustbox}
-\usepackage{multicol}
-\usepackage{totcount}
-\usepackage{xcolor}
 
-% --------------------
+\input{preamble.tex}
 
 % Settings
 
-\def\musicmode{1}
-\def\largeprintmode{0}
+\def\musicmode{0}
 
-% --------------------
 
 \newcommand{\ssver}{3.3.3}
 
-% Large print sizes
-\if\largeprintmode 1%
-  \renewcommand{\tiny}{\fontsize{17}{22.5}\selectfont}%
-  \renewcommand{\scriptsize}{\fontsize{19}{25.5}\selectfont}%
-  \renewcommand{\footnotesize}{\fontsize{21}{28.5}\selectfont}%
-  \renewcommand{\small}{\fontsize{23}{31.5}\selectfont}%
-  \renewcommand{\normalsize}{\fontsize{24}{33}\selectfont}%
-  \renewcommand{\large}{\fontsize{26}{36}\selectfont}%
-  \renewcommand{\Large}{\fontsize{28}{39}\selectfont}%
-  \renewcommand{\LARGE}{\fontsize{31}{43.5}\selectfont}%
-  \renewcommand{\huge}{\fontsize{34}{48}\selectfont}%
-  \renewcommand{\Huge}{\fontsize{38}{54}\selectfont}%
-\fi
-
-% Index
-\if\largeprintmode 1%
-  \usepackage[columns=1]{idxlayout}%
-\fi
-\makeindex
-
-% Counters
-\newtotcounter{songcount}
-\newtotcounter{psalmcount}
-\definecolor{title dark}{HTML}{7E73A7}
-
-% Footer
-\pagestyle{fancy}
-\fancyhf{}
-\cfoot{{\small\thepage}\if\largeprintmode 1\else \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}\fi}
-\renewcommand{\headrulewidth}{0pt}
-
-\makeatletter
-
-% Chorus
-\newcommand{\chorus}{\@chorusi}
-\newcommand{\@chorusi}{\@ifnextchar\end{\@chorusend}{\@chorusii}}
-\newcommand{\@chorusii}[1]{\quad{\itshape#1}\par\@chorusi}
-\newcommand{\@chorusend}[1]{\vskip1em}
-
-% --------------------
-
-% Verse
-\renewcommand{\verse}{\@versei}
-\newcommand{\@versei}{\@ifnextchar\end{\@verseend}{\@verseii}}
-\newcommand{\@verseii}[1]{#1\par\@versei}
-\newcommand{\@verseend}[1]{\vskip1em}
-
-% --------------------
-
-% Bridge
-\newcommand{\bridge}{\@bridgei}
-\newcommand{\@bridgei}{\@ifnextchar\end{\@bridgeend}{\@bridgeii}}
-\newcommand{\@bridgeii}[1]{{\itshape#1}\par\@bridgei}
-\newcommand{\@bridgeend}[1]{\vskip1em}
-
-\makeatother
-
-\newenvironment{song}[1]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
-\newenvironment{psalm}[2]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
-
-\newcommand{\extra}[1]{{\normalsize\itshape (#1)}}
-
-\renewcommand{\sp}{{\normalsize\itshape (Sing Psalms)}}
-\newcommand{\tr}{{\normalsize\itshape (Scottish Psalter)}}
-\newcommand{\LORD}{{\scshape Lord}}
-
-% Chords
-\definecolor{chordColor}{HTML}{CC241D}
-\newcommand{\m}[2][l]{\if\musicmode 1\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}{\small\mdseries\color{chordColor}#2}\\\mbox{}\end{tabular}}\else\fi}
 
 \begin{document}
 \begin{titlepage}
@@ -183,7 +102,7 @@
   {An \m{C}in\m{D}t'rest \m{G}in the \m{D}Sav\m{A}iour's \m{D}blood?}
   {Died He for \m{G}me\m{D}, who \m{G}caused \m{Em}His \m{D}pain --}
   {For \m{C}me, who \m{G}Him to \m{Em}death \m{D}pur\m{G}sued?}
-  {A\m{D}mazing \m{G}love! \m{Em}How \m{C}can \m{Am}it \m{D}be,}
+  {A\m{D}mazing \m{G}love! \m{Em}How \m{C}can\m{Am} it \m{D}be,}
   {That \m{G}Thou, my \m{C}God, shouldst \m{D}die for \m{G}me?}
   {\quad{\itshape Amazing \m{D}love! How \m{D7}can it \m{G}be,}}
   {\quad{\itshape That \m{C}Thou, my \m{G}God, \m{C}shouldst \m{G}die \m{D}for \m{G}me!}}
@@ -396,14 +315,14 @@
 
 \begin{song}{In Christ Alone}
   \verse
-  {In Christ alone my hope is found,}
-  {He is my light, my strength, my song;}
-  {This Cornerstone, this solid Ground,}
-  { Firm through the fiercest drought and storm.}
-  {What Heights of love, what depths of peace,}
-  {When fears are stilled, when strivings cease!}
-  {My Comforter, my All in All,}
-  {Here in the love of Christ I stand.}
+  {In \m{G}Christ \m{D}alone my \m{G}hope is \m{A}found,}
+  {\m{D}He is my \m{G}light, my \m{A}strength, my \m{D}song;}
+  {This \m{G}Corner\m{D}stone, this \m{G}solid \m{A}Ground,}
+  {\m{D}Firm through the \m{G}fiercest \m{A}drought and \m{D}storm.}
+  {\m{D}What Heights of \m{G}love, what \m{D}depths of \m{A}peace,}
+  {When \m{D}fears are \m{G}stilled, when \m{Bm}strivings \m{A}cease!}
+  {My \m{G}Comfor\m{D}ter, my \m{G}All in \m{A}All,}
+  {\m{D}Here in the \m{G}love of \m{A}Christ I \m{D}stand.}
   \end
   \verse
   {In Christ alone! – who took on flesh,}
@@ -791,20 +710,20 @@
 
 \begin{song}{Across The Lands}
   \verse
-  {You're the Word of God the Father,}
-  {From before the world began;}
-  {Every star and every planet}
-  {Has been fashioned by Your hand.}
-  {All creation holds together}
-  {By the power of Your voice}
-  {Let the skies declare Your glory}
-  {Let the land and seas rejoice!}
+  {You're the \m{C}Word of \m{G}God the \m{F}Father,}
+  {From be\m{C}fore the \m{G}world began;}
+  {Every \m{F}star and every \m{C}planet}
+  {Has been \m{Dm}fashioned by Your \m{F}hand.}
+  {All cre\m{C}ation \m{G}holds to\m{F}gether}
+  {By the \m{C}power \m{G}of Your voice}
+  {Let the \m{F}skies declare Your \m{C}glory}
+  {Let the \m{Dm}land and \m{F}seas re\m{G}joice!}
   \end
   \chorus
-  {You're the Author of creation,}
-  {You're the Lord of every man;}
-  {And Your cry of love rings out}
-  {Across the lands.}
+  {You're the \m{F}Author of cre\m{C}ation,}
+  {You're the \m{F}Lord of \m{G}every \m{Am}man;}
+  {And Your \m{F}cry of love rings \m{Am}out}
+  {A\m{G}cross the \m{C}lands.}
   \end
   \verse
   {Yet You left the gaze of angels,}
@@ -1045,8 +964,8 @@
   \verse
   {The Godhead Three in One}
   {Father, Spirit and Son}
-  {The Lion and the Lamb}
-  {The Lion and the Lamb}
+  {The Lion and the Lam{\flat}}
+  {The Lion and the Lam{\flat}}
   \end
   \bridge
   {Name above all names}
@@ -1129,14 +1048,15 @@
 
 \begin{song}{It Is Well}
   \verse
-  {When peace, like a river, attendeth my way,}
-  {When sorrows like sea billows roll;}
-  {Whatever my lot, Thou hast taught me to say,}
-  {It is well, it is well with my soul.}
+  {When \m{B{\flat}}peace, like a \m{Gm}river, a\m{E{\flat}}tten\m{F}deth my \m{B{\flat}}way,}
+  {\m{F}When \m{Gm}sorrows like \m{C}sea billows \m{F}roll;}
+  {\m{F}What\m{B{\flat}}ever my \m{E{\flat}}lot, Thou hast \m{C}taught me to \m{F}say,}
+  {It is \m{B{\flat}}well, it is \m{E{\flat}}well \m{F}with \m{B{\flat}}my soul.}
   \end
   \chorus
-  {It is well with my soul,}
-  {It is well, it is well with my soul.}
+  {\m{B{\flat}}It is well (\m{B{\flat}}it is \m{F}well)}
+  {\m{B{\flat}}With my soul (\m{F}with \m{F7}my \m{B{\flat}}soul)}
+  {\m{B{\flat}}It is \m{E{\flat}}well, it is \m{B{\flat}}well \m{F}with \m{B{\flat}}my soul.}
   \end
   \verse
   {Though Satan should buffet, though trials should come,}
@@ -1337,7 +1257,7 @@
   {To look on Him and pardon me}
   \end
   \verse
-  {Behold Him there the risen Lamb}
+  {Behold Him there the risen Lam{\flat}}
   {My perfect spotless righteousness}
   {The great unchangeable I am}
   {The King of glory and of grace}
@@ -2374,7 +2294,7 @@
   \end
   \verse
   {See the stone is rolled away}
-  {Behold the empty tomb}
+  {Behold the empty tom{\flat}}
   {Hallelujah God be praised}
   {He's risen from the grave}
   \end
@@ -2900,14 +2820,14 @@
 
 \begin{song}{I Heard The Voice Of Jesus Say}
   \verse
-  {I heard the voice of Jesus say,}
-  {“Come unto Me and rest;}
-  {Lay down, thou weary one, lay down}
-  {Thy head upon My breast.”}
-  {I came to Jesus as I was,}
-  {Weary and worn and sad;}
-  {I found in Him a resting place,}
-  {And He has made me glad.}
+  {I \m{C{sharp}m}heard the voice of \m{E}Jesus \m{B}say,}
+  {“Come \m{C{sharp}m}unto \m{A}Me and \m{B}rest;}
+  {Lay \m{C{sharp}m}down, thou weary \m{E}one, lay \m{B}down}
+  {Thy \m{C{sharp}m}head \m{B}upon My \m{C{sharp}m}breast.”}
+  {I \m{E}came to Jesus \m{B}as I \m{C{sharp}m}was,}
+  {So \m{E}weary, \m{F{sharp}m}worn and \m{G{sharp}m}sad;}
+  {I \m{C{sharp}m}found in Him a \m{E}resting \m{B}place,}
+  {And \m{G{sharp}}He has \m{F{sharp}m}made me \m{C{sharp}m}glad.}
   \end
   \verse
   {I heard the voice of Jesus say,}
@@ -4291,7 +4211,7 @@
   \end
   \verse
   {His body bound and drenched in tears}
-  {They laid Him down in Joseph's tomb}
+  {They laid Him down in Joseph's tom{\flat}}
   {The entrance sealed by heavy stone}
   {Messiah still and all alone}
   \end
