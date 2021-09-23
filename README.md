@@ -7,3 +7,7 @@
 ## Preview
 * [Song Sheet](SongSheet.pdf)
 * [Song Sheet with Chords](SongSheetWithChords.pdf)
+
+-----
+
+Big thanks to Connor MacPhie for the title page!
