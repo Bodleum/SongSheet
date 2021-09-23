@@ -1,5 +1,6 @@
 \usepackage[left=1cm,right=1cm,top=0.75cm,bottom=2cm]{geometry}
 \usepackage{xcolor}
+\usepackage{pdfpages}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{makeidx}
@@ -41,7 +42,7 @@
 % Footer
 \pagestyle{fancy}
 \fancyhf{}
-\cfoot{{\small\thepage}\if\largeprintmode 1\else \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com}\fi}
+\cfoot{{\small\thepage}\if\largeprintmode 1\else \\ {\footnotesize Corrections and additions email: songsheet@daniellaing.com{\quad}v{\ssver}}\fi}
 \renewcommand{\headrulewidth}{0pt}
 
 \makeatletter
