@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Increment version number
-ver=$(grep -Po \\d\.\\d\.\\d\\d Head.tex | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}')
-sed -i "s/ssver [0-9]\.[0-9]\.[0-9][0-9]/ssver $ver/" Head.tex
+ver=$(grep -Po [0-9]\.[0-9]\.[0-9][0-9] Head.tex | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}')
+sed -i "s/ssver{[0-9]\.[0-9]\.[0-9][0-9]/ssver{$ver/" Head.tex
 
 # Build
 cat Head.tex Songs/*.tex Psalms/* Foot.tex > SongSheet.tex
