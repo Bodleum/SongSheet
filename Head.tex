@@ -1,0 +1,23 @@
+\documentclass[a4paper]{article}
+
+\def\ssver{4.0.02}
+
+\input{preamble.tex}
+
+% Settings
+
+\def\musicmode{0}
+
+
+\begin{document}
+\includepdf{titleimage.jpg}
+\setcounter{page}{2}  % Make title page, page 1
+\printindex
+\if\largeprintmode 1\pagebreak\fi
+
+% --------------------
+\if\largeprintmode 1\else
+  \begin{multicols}{2}
+  \raggedcolumns
+\fi
+
