@@ -10,4 +10,6 @@
 
 -----
 
-Big thanks to Connor MacPhie for the title page!
+### Thanks
+ * Title page art by Connor MacPhie
+ * Corrections and chords by Robbie and Ian
