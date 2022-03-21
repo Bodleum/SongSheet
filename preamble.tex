@@ -71,6 +71,9 @@
 
 \makeatother
 
+% --------------------
+
+% Songs
 \newenvironment{song}[1]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi{\stepcounter{songcount}\textbf{\large #1}\index{#1}}\par\vskip2pt}{\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
 \newenvironment{psalm}[2]{\if\largeprintmode 1\else\begin{minipage}[t]{0.94\columnwidth}\fi\begin{center}{\stepcounter{psalmcount}\textbf{\large #1}\index{#1}  {\normalsize #2}}\par\vskip2pt}{\end{center}\if\largeprintmode 1\pagebreak\else\end{minipage}\fi\vskip2em}
 
@@ -79,6 +82,8 @@
 \renewcommand{\sp}{{\normalsize\itshape (Sing Psalms)}}
 \newcommand{\tr}{{\normalsize\itshape (Scottish Psalter)}}
 \newcommand{\LORD}{{\scshape Lord}}
+
+\newcommand{\cp}[1]{{\tiny\ttfamily#1}}
 
 % Chords
 \definecolor{chordColor}{HTML}{CC241D}
