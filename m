@@ -14,3 +14,7 @@ mv SongSheet.pdf SongSheetWithChords.pdf
 sed -i 's/musicmode{[0-9]/musicmode{0/' SongSheet.tex
 latexmk -pdflua SongSheet.tex
 latexmk -c
+
+# Copy to website
+cp *.pdf /home/bodleum/archive/web/songsheetpdfs
+rsync -rtvzP /home/bodleum/archive/web/ root@daniellaing.com:/var/www/daniellaing
