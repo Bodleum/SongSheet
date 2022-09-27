@@ -16,5 +16,6 @@ latexmk -pdflua SongSheet.tex
 latexmk -c
 
 # Copy to website
-cp *.pdf /home/bodleum/archive/web/songsheetpdfs
-rsync -rtvzP /home/bodleum/archive/web/ root@daniellaing.com:/var/www/daniellaing
+cp *.pdf /home/bodleum/archive/web/website/songsheetpdfs
+pushd /home/bodleum/archive/web
+./upload
